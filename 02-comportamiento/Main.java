@@ -14,8 +14,9 @@ public class Main {
       System.out.println("a. Sumar");
       System.out.println("b. Restar");
       System.out.println("c. Multiplicar");
-      System.out.println("d. Deshacer último cambio");
-      System.out.println("e. Salir");
+      System.out.println("d. Dividir");
+      System.out.println("e. Deshacer último cambio");
+      System.out.println("f. Salir");
 
       String opcion = sc.nextLine();
 
@@ -47,6 +48,14 @@ public class Main {
           break;
 
         case "d":
+          System.out.println("Ingresa un número:");
+          entrada = sc.nextFloat();
+          Comando comando4 = new ComandoDividir(resultado, entrada);
+          resultado = comando4.ejecutar();
+          pila.add(comando4);
+          break;
+
+        case "e":
           if (!pila.isEmpty()) {
             Comando ultimo = pila.pop();
             resultado = ultimo.deshacer();
@@ -55,7 +64,7 @@ public class Main {
           }
           break;
 
-        case "e":
+        case "f":
           salir = true;
           break;
 
